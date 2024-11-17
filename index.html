@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareAI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#myAssistant">My Assistant</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#support">Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="section">
+    <h1>Welcome to CareAI</h1>
+    <p>Your Health, Our Priority <br> At CareAI we believe that understanding your health should be simple,accessible and reliable. Whether you're feeling unwell, curious about symptoms, or seeking information on medical conditions, our advanced medical chatbot is here to provide you with accurate, personalized guidance.</p>
+  </section>
+
+  <!-- My Assistant Section -->
+  <section id="myAssistant" class="section assistant-section">
+    <h2>My Assistant</h2>
+    <div class="container">
+      <div class="chatbox">
+        <div class="messages" id="messages"></div>
+        <input type="text" id="queryInput" placeholder="Ask your question...">
+        <button id="sendButton">Send</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p>We are a team of 4 coders from Lovely Professional University.</p>
+  </section>
+
+  <!-- Support Section -->
+  <section id="support" class="section">
+    <h2>Support</h2>
+    <p>If you need help or have any questions, feel free to reach out to our support team at <a href="mailto:support@medassistant.com">support@medassistant.com</a>.</p>
+  </section>
+
+  <!-- JavaScript for Chatbot Interaction -->
+  <script>
+    document.getElementById('sendButton').addEventListener('click', async () => {
+      const query = document.getElementById('queryInput').value;
+      if (!query) return;
+
+      const messagesDiv = document.getElementById('messages');
+      messagesDiv.innerHTML += `<div class="message user">You: ${query}</div>`;
+
+      try {
+        const response = await fetch('http://localhost:3000/query', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: query })
+        });
+        const data = await response.json();
+
+        const botResponse = data.response || 'No response from the server';
+        messagesDiv.innerHTML += `<div class="message bot">Bot: ${botResponse}</div>`;
+      } catch (error) {
+        messagesDiv.innerHTML += `<div class="message error">Error: Could not get a response</div>`;
+      }
+
+      document.getElementById('queryInput').value = '';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff; /* Light sky blue background */
+  color: #333;
+  margin: 0;
+  padding: 0;
+  background-image: url("img0.jpg");
+  
+}
+
+h1, h2 {
+  color: #1e90ff; /* Deep sky blue */
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #1e90ff; /* Sky blue */
+  padding: 10px 0;
+  text-align: center;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display:flex;
+  justify-content: center;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.navbar ul li a:hover {
+  background-color:#86c2fd ;
+}
+
+/* Section Styles */
+.section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#home {
+  background-color: white;
+}
+
+#myAssistant {
+  background-color: #f0f8ff; /* Sky blue section */
+}
+
+#about {
+  background-color: white;
+}
+
+#support {
+  background-color: #f0f8ff; /* Sky blue section */
+}
+
+/* Chatbox Styles */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+}
+
+.chatbox {
+  display: flex;
+  flex-direction: column;
+}
+
+#queryInput {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#sendButton {
+  background-color: #1e90ff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#sendButton:hover {
+  background-color: #00bfff; /* Lighter sky blue */
+}
+
+/* Message Styles */
+.message {
+  margin: 10px 0;
+}
+
+.message.user {
+  text-align: right;
+  color: #1e90ff; /* Sky blue for user */
+}
+
+.message.bot {
+  text-align: left;
+  color: #333; /* Darker color for bot */
+}
+
+.message.error {
+  color: red;
+  text-align: center;
+}
+
+
